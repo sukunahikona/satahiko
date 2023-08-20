@@ -1,0 +1,10 @@
+variable "alb-name" {}
+variable "alb-tg-name" {}
+variable "dns-domain-name" {}
+variable "zone-id" {}
+variable "aws_subnet_public_1a" {}
+variable "aws_subnet_public_1c" {}
+variable "aws_subnet_public_1d" {}
+variable "sg_alb_id" {}
+variable "cert_arn" {}
+variable "vpc_id" {}

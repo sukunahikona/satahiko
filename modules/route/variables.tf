@@ -1,0 +1,14 @@
+variable "igw-name" {}
+variable "eipa-name" {}
+variable "eipc-name" {}
+variable "eipd-name" {}
+variable "ngwa-name" {}
+variable "ngwc-name" {}
+variable "ngwd-name" {}
+variable "vpc_id" {}
+variable "aws_subnet_public_1a" {}
+variable "aws_subnet_public_1c" {}
+variable "aws_subnet_public_1d" {}
+variable "aws_subnet_private_1a" {}
+variable "aws_subnet_private_1c" {}
+variable "aws_subnet_private_1d" {}

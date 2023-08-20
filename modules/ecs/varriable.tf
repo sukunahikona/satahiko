@@ -1,0 +1,9 @@
+variable "ecs-base-name" {}
+variable "ecs_deploy_iam_role_arn" {}
+variable "alb_tg_main_arn" {}
+variable "aws_subnet_private_1a" {}
+variable "aws_subnet_private_1c" {}
+variable "aws_subnet_private_1d" {}
+variable "aws_ecr_repository_main_repository_url" {}
+variable "sg_ecs_id" {}
+variable "aws_lb_listener_https_arn" {}
