@@ -21,6 +21,7 @@ terraform apply
 
 ## AWSリソース破棄
 ```
+cd ./env/prod
 # elastic ipはnat-gwやec2が起動してなくても課金されるため、利用時以外は基本的にリソースを破棄すること
 terraform destroy
 ```
