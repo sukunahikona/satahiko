@@ -2,7 +2,7 @@
 aws platform using terafform
 
 ## terraform準備
-こちらを参考に
+こちらを参考に  
 https://soulimpact20141.amebaownd.com/posts/47144499
 
 ## 初期化処理
