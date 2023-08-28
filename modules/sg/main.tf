@@ -47,7 +47,7 @@ resource "aws_security_group_rule" "alb_http" {
   security_group_id = aws_security_group.sg_alb.id
   to_port           = 80
   type              = "ingress"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "alb_https" {
@@ -56,7 +56,7 @@ resource "aws_security_group_rule" "alb_https" {
   security_group_id = aws_security_group.sg_alb.id
   to_port           = 443
   type              = "ingress"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 # ECS
 resource "aws_security_group" "sg_ecs" {
@@ -81,7 +81,7 @@ resource "aws_security_group_rule" "ecs_http" {
   security_group_id = aws_security_group.sg_ecs.id
   to_port           = 80
   type              = "ingress"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "ecs_https" {
@@ -90,5 +90,33 @@ resource "aws_security_group_rule" "ecs_https" {
   security_group_id = aws_security_group.sg_ecs.id
   to_port           = 443
   type              = "ingress"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group" "sg_rds" {
+  name        = var.sg-rds-name
+  description = "RDS service security group"
+  vpc_id      = var.vpc_id
+
+  tags = {
+    Name = var.sg-rds-name
+  }
+}
+
+resource "aws_security_group_rule" "rds_ingress_postgres" {
+  type              = "ingress"
+  from_port         = 5432
+  to_port           = 5432
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.sg_rds.id
+}
+
+resource "aws_security_group_rule" "rds_egress_all" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.sg_rds.id
 }

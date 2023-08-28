@@ -12,3 +12,4 @@ variable "private-1c-cidr" {}
 variable "private-1c-name" {}
 variable "private-1d-cidr" {}
 variable "private-1d-name" {}
+variable "rds-subnet-group-name" {}

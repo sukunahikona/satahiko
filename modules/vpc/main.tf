@@ -6,7 +6,9 @@ resource "aws_vpc" "main" {
   }
 }
 
+#--------------------------------------------------------------
 # Public Subnets
+#--------------------------------------------------------------
 # AZ 1a
 resource "aws_subnet" "public_1a" {
   vpc_id = aws_vpc.main.id
@@ -46,7 +48,10 @@ resource "aws_subnet" "public_1d" {
   }
 }
 
+#--------------------------------------------------------------
 # Private Subnets
+#--------------------------------------------------------------
+
 resource "aws_subnet" "private_1a" {
   vpc_id = aws_vpc.main.id
 
@@ -78,4 +83,14 @@ resource "aws_subnet" "private_1d" {
   tags = {
     Name = var.private-1d-name
   }
+}
+
+#--------------------------------------------------------------
+# Subnet group
+#--------------------------------------------------------------
+
+resource "aws_db_subnet_group" "rds" {
+  name        = var.rds-subnet-group-name
+  description = "rds subnet group"
+  subnet_ids  = [aws_subnet.private_1a.id, aws_subnet.private_1c.id, aws_subnet.private_1d.id]
 }

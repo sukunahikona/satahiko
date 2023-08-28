@@ -25,3 +25,7 @@ output "aws_subnet_private_1c" {
 output "aws_subnet_private_1d" {
   value = aws_subnet.private_1d.id
 }
+
+output "aws_db_subnet_group_name" {
+  value = aws_db_subnet_group.rds.name
+}

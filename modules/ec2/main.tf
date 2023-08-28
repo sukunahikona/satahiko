@@ -17,6 +17,7 @@ resource "aws_instance" "main" {
   subnet_id                   = var.aws_subnet_public_1a
   associate_public_ip_address = "true"
   key_name                    = var.key_pair_main_id
+  user_data                   = file("${path.module}/script.sh")
   tags = {
     Name = "izanami-ec2-board"
   }

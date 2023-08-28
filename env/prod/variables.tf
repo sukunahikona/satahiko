@@ -64,6 +64,9 @@ variable "ngwc-name" {
 variable "ngwd-name" {
   default = "izanami-ngwd"
 }
+variable "rds-subnet-group-name" {
+  default = "izanami-rds-subnet-group"
+}
 
 # Security Groups
 variable "sg-board-name" {
@@ -73,7 +76,10 @@ variable "sg-alb-name" {
   default = "izanami-sg-alb"
 }
 variable "sg-ecs-name" {
-  default = "izanami-sg-ecs"  
+  default = "izanami-sg-ecs"
+}
+variable "sg-rds-name" {
+  default = "izanami-sg-rds"
 }
 
 # Key Pair
@@ -84,10 +90,16 @@ variable "key-pair-name" {
 # ACM Certificate
 # input variable
 # ALBに紐付けるSSL証明書の対象ドメイン名
-variable "domain-name" {}
+variable "domain-name" {
+  type = string
+  description = "input domain"
+}
 # 上記ドメイン情報を保持するホストゾーンID(Route53)
 # 先にRoute53からホストゾーンを開設する必要有り
-variable "zone-id" {}
+variable "zone-id" {
+  type = string
+  description = "input host zone id"
+}
 variable "certificate-name" {
   default = "izanami-prod-certificate"
 }
@@ -117,4 +129,22 @@ variable "container-name" {
 # ECS
 variable "ecs-base-name" {
   default = "izanami-ecs"
+}
+
+# RDS
+variable "rds-base-name" {
+  default = "izanami-rds"
+}
+variable "db-name" {
+  default = "izanami"
+}
+variable "db-username" {
+  default = "izanami"
+}
+variable "db-password" {
+  default = "Hogepiyo"
+}
+variable "db-snapshot-name" {
+  type = string
+  description = "input snapshot name"
 }
