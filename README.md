@@ -15,7 +15,7 @@ terraform init
 ```
 cd ./env/prod
 # 適応する前にRoute53でホストゾーン(DNSでいうドメイン取得)作成をすること
-# 作成されたホストゾーンに紐づくdomainとhostzone-idのコンソール入力必須
+# 作成されたホストゾーンに紐づくdomain,hostzone-id,rdsのrestore元のsnapshot識別子(省略時はrestore実施無し)のコンソール入力必須
 terraform apply
 ```
 
